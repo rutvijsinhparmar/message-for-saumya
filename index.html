@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Saumya 💛</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Hey Saumya 💛</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #ffe0b2, #fff3e0);
+  font-family: sans-serif;
+  text-align: center;
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff7043;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container" onclick="nextScene()">
-    <img id="catImage" src="cat1.png" class="cat">
-
-    <p class="hint">tap anywhere 💛</p>
+<div class="box">
+  <h2>Hey Saumya 💛</h2>
+  <p>I made something for you…</p>
+  <button onclick="start()">Tap to see 🐱</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+function start() {
+  document.body.classList.add("fade-out");
+  setTimeout(() => {
+    window.location.href = "main.html";
+  }, 1000);
+}
+</script>
+
 </body>
 </html>

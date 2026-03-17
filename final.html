@@ -19,7 +19,23 @@ body {
   overflow: hidden;
 }
 
-/* 🌸 Flowers container */
+/* ✨ Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* 🌸 Flowers */
 .flowers {
   position: relative;
   width: 320px;
@@ -29,26 +45,22 @@ body {
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* 🌹 Roses */
 .rose {
   position: absolute;
   width: 85px;
 }
-
 .rose1 { left: 5%; top: 50%; }
 .rose2 { left: 35%; top: 10%; }
 .rose3 { left: 70%; top: 50%; }
 
-/* 🤍 Lilies */
 .lily {
   position: absolute;
   width: 95px;
 }
-
 .lily1 { left: 20%; top: 70%; }
 .lily2 { left: 60%; top: 70%; }
 
-/* ✨ Message */
+/* 💬 Message */
 p {
   max-width: 520px;
   line-height: 1.7;
@@ -58,7 +70,7 @@ p {
   animation-delay: 0.3s;
 }
 
-/* smooth fade */
+/* fade */
 @keyframes fadeIn {
   to { opacity: 1; }
 }
@@ -66,6 +78,20 @@ p {
 </head>
 
 <body>
+
+<!-- ✨ Stars container -->
+<script>
+for (let i = 0; i < 25; i++) {
+  const star = document.createElement("div");
+  star.classList.add("star");
+
+  star.style.left = Math.random() * window.innerWidth + "px";
+  star.style.top = Math.random() * window.innerHeight + "px";
+  star.style.animationDelay = Math.random() * 3 + "s";
+
+  document.body.appendChild(star);
+}
+</script>
 
 <div class="flowers">
   <img src="rose.png" class="rose rose1">
@@ -78,8 +104,8 @@ p {
 
 <p>
 Hey Saumya, you are incredibly intelligent, and I truly believe you’re going to achieve something amazing in life.  
-Please don’t be so hard on yourself—take a moment to enjoy how beautiful life is right now.  
-And just so you know, I’ll always be right here with you. 💛
+Please don’t be so hard on yourself...take a moment to enjoy how beautiful life is right now.  
+And just so you know, I’ll always be right here with you❤️❤️❤️
 </p>
 
 </body>

@@ -1,47 +1,53 @@
-const messages = [
-  "Saumya… I don’t understand why you feel insecure about your smile.",
-  "Because to me, your smile is literally the prettiest thing in the world. You are genuinely so beautiful 💛"
-];
-
-const images = ["cat1.png", "cat2.png"];
-
 let current = 0;
-let i = 0;
-const speed = 40;
-
-function typeWriter() {
-  if (i < messages[current].length) {
-    document.getElementById("message").innerHTML += messages[current].charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  } else {
-    // Wait, then switch to next scene
-    setTimeout(nextScene, 2000);
-  }
-}
 
 function nextScene() {
-  if (current < messages.length - 1) {
-    current++;
-    i = 0;
+  if (current === 1) return;
 
-    const img = document.getElementById("catImage");
-    const msg = document.getElementById("message");
+  const img = document.getElementById("catImage");
 
-    // fade out
-    img.classList.add("fade-out");
+  // fade out
+  img.classList.add("fade-out");
 
-    setTimeout(() => {
-      // change content
-      img.src = images[current];
-      msg.innerHTML = "";
+  setTimeout(() => {
+    img.src = "cat2.png";
+    img.classList.remove("fade-out");
 
-      // fade in
-      img.classList.remove("fade-out");
+    spawnHearts(); // 💖 hearts appear
 
-      typeWriter();
-    }, 1000);
+    current = 1;
+  }, 1000);
+}
+
+// ✨ Sparkles generator
+function createSparkles() {
+  setInterval(() => {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.top = window.innerHeight + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 3000);
+  }, 300);
+}
+
+// 💖 Hearts on second scene
+function spawnHearts() {
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = (window.innerWidth / 2 + (Math.random() * 100 - 50)) + "px";
+    heart.style.top = (window.innerHeight / 2 + 50) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
   }
 }
 
-window.onload = typeWriter;
+// start sparkles on load
+window.onload = createSparkles;

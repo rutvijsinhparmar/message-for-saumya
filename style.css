@@ -7,7 +7,11 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  font-family: sans-serif;
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
 }
 
 .container {
@@ -21,7 +25,7 @@ body {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-.fade-out {
+.fade-img {
   opacity: 0;
   transform: scale(0.95);
 }
@@ -30,10 +34,9 @@ body {
   margin-top: 15px;
   color: #ff7043;
   font-size: 14px;
-  opacity: 0.8;
 }
 
-/* ✨ Sparkles */
+/* sparkles + hearts same as before */
 .sparkle {
   position: absolute;
   width: 6px;
@@ -41,21 +44,13 @@ body {
   background: white;
   border-radius: 50%;
   animation: floatUp 3s linear infinite;
-  opacity: 0.7;
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-200px); opacity: 0; }
 }
 
-/* 💖 Hearts */
 .heart {
   position: absolute;
   font-size: 20px;
@@ -63,12 +58,6 @@ body {
 }
 
 @keyframes floatHeart {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-150px) scale(1.5);
-    opacity: 0;
-  }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-150px); opacity: 0; }
 }
